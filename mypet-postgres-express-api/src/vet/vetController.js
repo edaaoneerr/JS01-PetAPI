@@ -41,8 +41,8 @@ const queries =  require('./vetQueries');
 
   const updateVet = (req, res) => {
     const id = req.params.id;
-    const {name, surname, username,  user_password, gender, email, phone_number, address, is_vet} = req.body;
-    pool.query(queries.updateVet, [id, name, surname, username,  user_password, gender, email, phone_number, address, is_vet], (err, result) => {
+    const {name, surname, user_password, is_female, email, phone_number, address, is_vet} = req.body;
+    pool.query(queries.updateVet, [id, name, surname,  user_password, is_female, email, phone_number, address, is_vet], (err, result) => {
       if (err) throw (err);
         res.json(result.rows);
       

@@ -11,6 +11,9 @@ const commentRoutes = require("./src/comment/commentRoutes");
 const cityRoutes = require("./src/city/cityRoutes");
 const districtRoutes = require("./src/district/districtRoutes");
 const streetRoutes = require("./src/street/streetRoutes");
+const productRoutes = require("./src/product/productRoutes");
+const serviceRoutes = require("./src/service/serviceRoutes");
+const campaignRoutes = require("./src/campaign/campaignRoutes");
 
 
 
@@ -29,5 +32,8 @@ app.use('/comment', commentRoutes);
 app.use('/city', cityRoutes);
 app.use('/district', districtRoutes);
 app.use('/street', streetRoutes);
+app.use('/product', productRoutes);
+app.use('/service', serviceRoutes);
+app.use('/campaign', campaignRoutes);
 
 app.listen(port, () => console.log(`app listening on port ${port}`));

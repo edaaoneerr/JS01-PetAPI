@@ -30,8 +30,8 @@ const getPets = (req, res) => {
 
   const updatePet = (req, res) => {
     const id = req.params.id;
-    const {pet_name, owner_id, gender, vet_id, pet_type, pet_breed} = req.body;
-    pool.query(queries.updatePet, [pet_name, owner_id, gender, vet_id, pet_type, pet_breed], (err, result) => {
+    const {pet_name, owner_id, is_female, vet_id, pet_type, pet_breed} = req.body;
+    pool.query(queries.updatePet, [pet_name, owner_id, is_female, vet_id, pet_type, pet_breed], (err, result) => {
       if (err) {
          if (err = "duplicate key value violates unique constraint Pets_Petname_key") {
            res.json(`Petname already exists : ${err}`);
@@ -49,8 +49,8 @@ const getPets = (req, res) => {
 
 
   const addPet = (req, res) => {
-    const {pet_name, owner_id, gender, vet_id, pet_type, pet_breed} = req.body;
-    pool.query(queries.addPet, [pet_name, owner_id, gender, vet_id, pet_type, pet_breed], (err, result) => {
+    const {pet_name, owner_id, is_female, vet_id, pet_type, pet_breed} = req.body;
+    pool.query(queries.addPet, [pet_name, owner_id, is_female, vet_id, pet_type, pet_breed], (err, result) => {
        if (err) throw (err);
         res.json(result.rows);
       

@@ -30,8 +30,8 @@ const getAddresss = (req, res) => {
 
   const updateAddress = (req, res) => {
     const id = req.params.id;
-    const {address_name, owner_id, gender, vet_id, address_type, address_breed} = req.body;
-    pool.query(queries.updateAddress, [address_name, owner_id, gender, vet_id, address_type, address_breed], (err, result) => {
+    const {address_name, owner_id, is_female, vet_id, address_type, address_breed} = req.body;
+    pool.query(queries.updateAddress, [address_name, owner_id, is_female, vet_id, address_type, address_breed], (err, result) => {
       if (err) {
          if (err = "duplicate key value violates unique constraint addresss_addressname_key") {
            res.json(`addressname already exists : ${err}`);
@@ -49,8 +49,8 @@ const getAddresss = (req, res) => {
 
 
   const addAddress = (req, res) => {
-    const {address_name, owner_id, gender, vet_id, address_type, address_breed} = req.body;
-    pool.query(queries.addAddress, [address_name, owner_id, gender, vet_id, address_type, address_breed], (err, result) => {
+    const {address_name, owner_id, is_female, vet_id, address_type, address_breed} = req.body;
+    pool.query(queries.addAddress, [address_name, owner_id, is_female, vet_id, address_type, address_breed], (err, result) => {
        if (err) throw (err);
         res.json(result.rows);
       
